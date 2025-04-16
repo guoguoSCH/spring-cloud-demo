@@ -1,7 +1,6 @@
-package com.example.commember.aspect;
+package com.example.comorder.aspect;
 
-import com.example.commember.anotation.LogAnnotation;
-import org.aspectj.lang.JoinPoint;
+import com.example.comorder.annctation.LogAnnotation;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -12,10 +11,10 @@ import java.lang.reflect.Method;
 @Aspect
 @Component
 public class LogAspect {
-    @Pointcut("execution(* com.example.commember.controller.*.*(..))")
+    @Pointcut("execution(* com.example.comorder.service.*.*(..))")
     public void logPointcut(){}
 
-    @AfterReturning("logPointcut()")
+    @Around("logPointcut()")
     public void afterLog(ProceedingJoinPoint joinPoint){
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
