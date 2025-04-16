@@ -1,0 +1,17 @@
+# jifen Common Config
+
+############################# 访问路径、端口tomcat start #############################
+server:
+  port: 8083
+spring:
+  application:
+    name: com-member
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8082/eureka/
+  server:
+    enable-self-preservation: true
+    renewalPercentThreshold=0: 0.85
+  instance:
+    lease-expiration-duration-in-seconds: 30
